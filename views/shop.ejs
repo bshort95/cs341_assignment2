@@ -1,0 +1,34 @@
+<%- include('includes/head.ejs')%>
+</head>
+
+<body>
+    <%- include('includes/nav.ejs')%>  
+
+    <main>
+
+        <% if( stf.length > 0){ %>
+            <%for (let stuff of stf) {%>
+         <div class="grid">
+            <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title"><%= stuff.title%></h1>
+                </header>
+                <div class="card__image">
+                    <img src="https://images.pexels.com/photos/5337590/pexels-photo-5337590.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A duck">
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price">$4.99</h2>
+                    <p class="product__description">a cute rubber duck. you know you want it!</p>
+                </div>
+                <div class="card__actions">
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </article>
+        </div> 
+
+        <%}%>
+        <%}else{%>
+            <h1> no stuff here</h1>
+            <%}%>
+    </main>
+    <%- include('includes/end.ejs')%>  
