@@ -1,8 +1,8 @@
-<%- include('includes/head.ejs')%>
+<%- include('../includes/head.ejs')%>
 </head>
 
 <body>
-    <%- include('includes/nav.ejs')%>  
+    <%- include('../includes/nav.ejs')%>  
 
     <main>
 
@@ -14,14 +14,15 @@
                     <h1 class="product__title"><%= stuff.title%></h1>
                 </header>
                 <div class="card__image">
-                    <img src="https://images.pexels.com/photos/5337590/pexels-photo-5337590.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A duck">
+                    <img src="<%= stuff.url%>" alt="<%= stuff.title%>">
                 </div>
                 <div class="card__content">
-                    <h2 class="product__price">$4.99</h2>
-                    <p class="product__description">a cute rubber duck. you know you want it!</p>
+                    <h2 class="product__price">$<%= stuff.price%></h2>
+                    <p class="product__description"><%= stuff.desc%></p>
                 </div>
                 <div class="card__actions">
-                    <button class="btn">Add to Cart</button>
+                    <a href = "/stuff/<%= stuff.id %>" class = "btn">Details</a>
+                    <%- include('../includes/addToCart.ejs', {stuff: stuff})%>
                 </div>
             </article>
         </div> 
@@ -31,4 +32,4 @@
             <h1> no stuff here</h1>
             <%}%>
     </main>
-    <%- include('includes/end.ejs')%>  
+    <%- include('../includes/end.ejs')%>  

@@ -4,31 +4,24 @@ const express = require('express');
 
 const rootDir = require('../util/path');
 
+const adminController = require('../controllers/admin')
 const router = express.Router();
 
-const stuff = [];
+
 
 // /admin/add-product => GET
-router.get('/add-product', (req, res, next) => {
-  res.render('add-product',
-  {ptitle: 'add product',
-  path:'/admin/add-product',
-  formsCSS: true,
-  stuffCSS: true,
-  activeAddStuff: true
+router.get('/add-product', adminController.getaddstuff);
 
-
-}
-  
-  );
-});
+router.get('/adfront',adminController.adfront);
 
 // /admin/add-product => POST
-router.post('/add-product', (req, res, next) => {
-  stuff.push({title: req.body.title});
-  res.redirect('/');
-});
+router.post('/add-product', adminController.postaddstuff);
+
+router.post('/edit-product', adminController.posteditstuff);
+
+router.get('/edit-product/:stuffId',adminController.geteditstuff);
+
+router.post('/delete-product',adminController.postdeletestuff);
 
 
-exports.routes = router;
-exports.stuff = stuff;
+module.exports = router;

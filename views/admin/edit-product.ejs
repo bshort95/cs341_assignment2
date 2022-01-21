@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+
+
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs')%>  
+
+    <main>
+        <form class="product-form" action="/admin/<% if (edit) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" value = '<%if(edit) {%><%=stuff.title%><%}%>'>
+            </div>
+
+            <div class="form-control">
+                <label for="url">url</label>
+                <input type="text" name="url" id="url"value = '<%if(edit) {%><%=stuff.url%><%}%>'>
+            </div>
+
+
+            <div class="form-control">
+                <label for="desc">description</label>
+                <textarea name = "desc" title="desc" rows = "5"><%if(edit) {%><%=stuff.desc%><%}%></textarea>
+            </div>
+
+            <div class="form-control">
+                <label for="price">price</label>
+                <input type="number" name="price" id="price" value = '<%if(edit) {%><%=stuff.price%><%}%>'>
+            </div>
+            <div>
+                <%if(edit){%>
+                    <input type="hidden" value="<%=stuff.id%>" name="stuffId">
+
+                <%}%>
+            </div>
+
+            <button class="btn" type="submit"><% if (edit){%>Edit Product<%} else { %> Add product <%}%></button>
+        </form>
+    </main>
+    <%- include('../includes/end.ejs')%>  
