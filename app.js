@@ -1,6 +1,9 @@
 const path = require('path');
 const PORT = process.env.PORT || 5000
 const cors = require('cors') // Place this with other requires (like 'path' and 'express')
+const MONGODB_URL = process.env.MONGODB_URL ||'mongodb+srv://brudder123:7SXs3xESZxm6qHWQ@cluster0.by4op.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+                        
+
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -34,6 +37,23 @@ app.use(shopRoutes);
 
 app.use('/',errorController.get404);
 
+
+
+
+const corsOptions = {
+  origin: "https://shop-webdev2.herokuapp.com/",
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+const options = {
+  family: 4
+};
+
+
+
+
+
 mongoose
   .connect(
     MONGODB_URL, options
@@ -60,16 +80,3 @@ mongoose
 
 
 
-
-const corsOptions = {
-    origin: "https://shop-webdev2.herokuapp.com/",
-    optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
-
-const options = {
-    family: 4
-};
-
-const MONGODB_URL = process.env.MONGODB_URL ||'mongodb+srv://brudder123:7SXs3xESZxm6qHWQ@cluster0.by4op.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-                        
