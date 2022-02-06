@@ -2,11 +2,13 @@
     width: 20rem;
     max-width: 90%;
     margin: auto;
+    display: block;
 }
 
 .product-item {
-    width: 20px;
+    width: 20rem;
     max-width: 95%;
+    margin: 1rem;
 }
 
 .product__title {
@@ -16,7 +18,7 @@
 
 .product__price {
     text-align: center;
-    color: #4d4d4d;
+    color: #b3d1dd;
     margin-bottom: 0.5rem;
 }
 
