@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    
   },
   "dependencies": {
+    "nodemon": "^2.0.15",
     "-": "^0.0.1",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
@@ -21,10 +22,14 @@
     "csurf": "^1.11.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
+    "express-check": "^0.0.1",
     "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
     "g": "^2.0.1",
     "heroku": "^7.33.3",
     "mongodb": "^4.3.1",
-    "mongoose": "^6.1.8"
+    "mongoose": "^6.1.8",
+    "nodemailer": "^6.7.2",
+    "nodemailer-sendgrid-transport": "^0.2.0"
   }
 }
